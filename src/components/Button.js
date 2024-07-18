@@ -2,7 +2,7 @@
 
 // Button component
 import React from "react";
-import "./Button.css"; // Import your CSS file
+import "../css/Button.css"; // Import your CSS file
 
 
 const Button = ({ color, label, onClick }) => {

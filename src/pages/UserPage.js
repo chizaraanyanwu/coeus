@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from "react-router";
 
 
 
@@ -11,6 +12,8 @@ function UserPage() {
 }
 
 export default UserPage;
+// export default withRouter(UserPage);
+
 
 // import { useParams } from 'react-router-dom';
 

@@ -23,6 +23,6 @@
 }
 
 .custom-button:hover {
-  box-shadow: 0 4px 8px rgba(19, 112, 212, 0.3); /* Light shadow on hover */
-  background-color: #0b4450; /* Darker blue shade on hover */
+  box-shadow: 0 4px 8px rgba(23, 99, 180, 0.3); /* Light shadow on hover */
+  background-color: #126B7D; /* Darker blue shade on hover */
 }

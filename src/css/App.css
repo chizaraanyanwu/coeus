@@ -1,3 +1,4 @@
+/* Stlying for default/homepage  */
 /* Defining root vars (color scheme) */
 :root {
   --main: #126B7D;
@@ -46,19 +47,3 @@ h2 {
 }
 
 /* Styling for the button */
-
-.custom-button {
-  border: none;
-  background-color: var(--main); /* Shade of blue */
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 20px;
-}
-
-.custom-button:hover {
-  background-color: #0056b3; 
-  
-}

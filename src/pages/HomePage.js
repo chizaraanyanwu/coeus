@@ -1,12 +1,12 @@
 import React from 'react';
-import '../App.css';
-import '../App'
-import Button from "../Button"; // Import the Button component
+import '../css/App.css';
+import Button from "../components/Button"; // Import the Button component
 import { Link } from "react-router-dom";
 
 
 function HomePage() {
   return (
+    
     <div className="App">
       <header className="App-header">
         <h1>Welcome</h1>
