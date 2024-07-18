@@ -1,38 +1,64 @@
-.App {
+/* Defining root vars (color scheme) */
+:root {
+  --main: #126B7D;
+  --sec-1: #92140C;
+  --sec-2: #B6863E;
+  --neut-1: #FCF8EB;
+  --neut-2: #011627;
+}
+
+html {
+  line-height: 120%;
+  font-size: 62.5%;
+  padding: 5px;
+}
+
+/* Styling for basic background */
+body {
+  background-color: var(--neut-2);
+}
+/* Headings 1  */
+h1 {
+  font-size: 10rem;
+  font-family: Helvetica, 'Public Sans', sans-serif;
   text-align: center;
-}
+  color: var(--sec-1);
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Smaller Headings  */
+h2 {
+  padding: 5px;
+  font-size: 5rem;
+  text-align: center;
+  color: var(--sec-1);
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  height: 85vh;
+  background-color: var(--neut-1);
+  width: 50vw;
+  margin: auto;
+  margin-top: 10vh;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+/* Styling for the button */
+
+.custom-button {
+  border: none;
+  background-color: var(--main); /* Shade of blue */
   color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-button:hover {
+  background-color: #0056b3; 
+  
 }
