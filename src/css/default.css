@@ -1,0 +1,15 @@
+/* Default (basic) styling applied across all pages (so I don't have to do it multiple times) */
+/* Defining root vars (color scheme) */
+:root {
+  --main: #126B7D;
+  --sec-1: #92140C;
+  --sec-2: #c99a54;
+  --neut-1: #FCF8EB;
+  --neut-2: #011627;
+}
+
+html {
+  line-height: 120%;
+  font-size: 62.5%;
+  padding: 5px;
+}

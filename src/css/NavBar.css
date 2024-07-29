@@ -1,0 +1,40 @@
+
+.navbar {
+  background-color: var(--neut-1); /* Light neutral background */
+  padding: 10px; /* Padding around the navigation */
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+}
+
+.navbar ul {
+  list-style-type: none; /* Remove default list styles */
+  display: flex;
+  justify-content: space-around; /* Evenly space links */
+  width: 100%;
+}
+
+.navbar li {
+  margin: 20px 10px; /* Margin between list items */
+  padding: 10px;
+  border-radius: 5px;
+  transition: color 0.3s ease; /* Smooth color transition */
+
+}
+
+.navbar li:hover{
+  background-color: var(--main);
+}
+
+.navbar a {
+  font-size: 3rem;
+  font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
+  color: var(--neut-2); /* Dark neutral text color */
+  text-decoration: none; /* Remove underline */
+  padding: 8px 12px; /* Padding inside each link */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar a:hover {
+  color: var(--neut-1); /* Hover color */
+}

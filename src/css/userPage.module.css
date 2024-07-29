@@ -1,0 +1,152 @@
+/* components/Editor/styles.modules.css */
+/* NOTE: if elements are too close, add padding. It helps so much!  */
+body {
+  background-color: var(--neut-1);
+} 
+/* Wrapper of page  */
+.wrapper {
+  background-color: var(--neut-1);
+  padding: 2rem 3rem;
+  display: flex;
+  transition: all 0.5s ease;
+  height: 100vh;
+  /* width: 100vw; */
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-weight: bold;
+}
+
+/* Controls styling on quill text editor  */
+.editor {
+  height: 500px;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  /* border: 2px var(--neut-2) solid; */
+  margin-top: 1rem;
+}
+/* Styling for 'check button'  */
+.btn {
+  border: none;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.6rem 2rem;
+  background-color: var(--main);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 100px;
+  height: 40px;
+  z-index: 10000;
+}
+/* .btn {
+  height: 40px;
+  color: white;
+  background: #FFB3CB;
+  border: 1px solid white;
+  cursor: pointer;
+
+  width: 200px;
+  border-radius: 10px;
+  transition: width 3s ease, border-radius 2s ease;
+}
+
+.btn.clicked {
+  color: #FFB3CB;
+
+  width: 40px;
+  border-radius: 50px;
+}
+
+.icon { 
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: transform 2s ease, opacity 2s ease 3s;
+}
+
+.icon.done {
+  opacity: 1;
+  transform: translate(-50%,-180%);
+} */
+/* The div containing prompt information  */
+.prompt {
+  background-color: var(--sec-2);
+  height: 10vh;
+  padding: 3vh;
+  margin: 15px auto;
+  border-radius: 15px;
+}
+/* Label explaining prompt  */
+.prompt_label {
+  margin: 50% auto;
+  color: var(--neut-1);
+  font-size: 1.5rem;
+}
+/* Stlying for input button  */
+.input {
+  width: 100%;
+  margin: 10px 0px;
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid var(--sec-1);
+	background-color: rgba(255, 194, 103, 0.747); 
+	border-radius: 0.2em 0.2em 0 0;
+	padding: 0.4em;
+	color: var(--neut-2);
+
+}
+
+
+/* All the APP.css styling  */
+
+.main_content {
+  flex: 1;
+  transition: all 0.5s ease;
+  padding: 20px;
+}
+
+.side_panel {
+  flex: 4; /* Change this for 6:4 ratio */
+  background: #f4f4f4;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.5s ease;
+}
+/* The main content when split?  */
+.split .main_content {
+  /* flex: 0 0 60%; */
+  flex-basis: 60%;
+}
+/* God if I know  */
+.split .side_panel {
+  flex: 1 0 40%;
+  flex-basis: 40%;
+  flex-grow: 1;
+}
+/* The close section button  */
+.close_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--sec-1);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* BABABA  */
+.spellcheck_data {
+  margin-top: 50px;
+  white-space: pre-wrap; /* Preserve whitespace in JSON */
+}

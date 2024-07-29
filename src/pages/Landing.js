@@ -1,9 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
+import "../css/default.css";
+import '../css/NavBar.css'
+
 
 const Landing = () => {
   return (
     <>
-      <nav>
+      <nav className="navbar">
         <ul>
           <li>
             <Link to="/">Home</Link>

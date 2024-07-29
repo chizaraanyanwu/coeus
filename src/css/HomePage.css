@@ -1,22 +1,10 @@
 /* Stlying for default/homepage  */
 /* Defining root vars (color scheme) */
-:root {
-  --main: #126B7D;
-  --sec-1: #92140C;
-  --sec-2: #B6863E;
-  --neut-1: #FCF8EB;
-  --neut-2: #011627;
-}
 
-html {
-  line-height: 120%;
-  font-size: 62.5%;
-  padding: 5px;
-}
 
 /* Styling for basic background */
-body {
-  background-color: var(--neut-2);
+body.home-page {
+  /* background-color: var(--neut-2); */
 }
 /* Headings 1  */
 h1 {
