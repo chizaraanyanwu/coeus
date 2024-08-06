@@ -1,12 +1,5 @@
 /* Button.css */
-
-:root {
-  --main: #126B7D;
-  --sec-1: #92140C;
-  --sec-2: #B6863E;
-  --neut-1: #FCF8EB;
-  --neut-2: #011627;
-}
+/* All the styling on the button   */
 
 .custom-button {
   width: 300px;

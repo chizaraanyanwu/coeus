@@ -43,6 +43,10 @@ body {
   width: 100px;
   height: 40px;
   z-index: 10000;
+  transition: all ease-in-out 0.1s;
+}
+.btn:hover {
+  background-color: #298496;
 }
 /* .btn {
   height: 40px;

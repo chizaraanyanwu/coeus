@@ -3,16 +3,21 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 
 // Importing core components
 import QuillEditor from "react-quill";
-
 // Importing userPage
 import "react-quill/dist/quill.snow.css";
 import userPage from "../css/userPage.module.css";
-
+import SpellCheckResults from "../components/SpellCheckResults"; // Import the Spellcheck area component
+// import EssayPrompt from "../components/EssayPrompt.js";
 
 const Editor = () => {
   //Adds variables that control the split screen 
   const [isSplit, setIsSplit] = useState(false);
   const [spellCheckData, setSpellCheckData] = useState(null);
+
+  //Prediction model
+  // const [text, setText] = useState("");
+  // const [prediction, setPrediction] = useState(null);
+
 
   // Editor state
   const [value, setValue] = useState("");
@@ -44,24 +49,24 @@ const Editor = () => {
   // Function to handle spell check
   const handleSpellCheck = useCallback(async () => {
     try {
-      //Problems here s
+      //Idek what this does.... soemthing complex I'm guessing
       const response = await fetch("http://localhost:5000/spellcheck", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json; charset=utf-8;",
+          "Content-Type": "application/json;",
         },
         body: JSON.stringify({ text: value }),
       });
-
       if (!response.ok) {
         throw new Error("Spell check failed");
       }
 
       const data = await response.json();
       setSpellCheckData(data);
-      setIsSplit(true);
-
       const misspelledWords = data.misspelled_words;
+
+      // Splits the screen
+      setIsSplit(true);
 
       if (misspelledWords.length > 0) {
         // Implement your logic to handle misspelled words (e.g., highlight, alert, etc.)
@@ -69,11 +74,32 @@ const Editor = () => {
       } else {
         console.log("No misspelled words found.");
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("Error during spell check:", error.message);
+      // Splits the screen
+      setIsSplit(true);
     }
   }, [value]);
-  
+
+  // Function to run the AI check 
+  // const textScoring = async () => {
+  //   try {
+  //   // const response = await fetch('http://localhost:5000/analysis', {
+  //   //   method: 'POST',
+  //   //   headers: {
+  //   //     'Content-Type': 'application/json',
+  //   //   },
+  //   //   body: JSON.stringify({ text }),
+  //   // });
+
+  //   // const data = await response.json();
+  //   // setPrediction(data.prediction);
+  //   // } catch (error) {
+  //   //   console.error('Error:', error);
+  //   // }
+  // }};
+
   // Handling imported images 
   const imageHandler = useCallback(() => {
     const input = document.createElement("input");
@@ -140,17 +166,19 @@ const Editor = () => {
     "clean",
   ];
 
+  // Controls what the button does on sumbit 
   const handleSubmit = () => {
     console.log("I think it works");
-    // Call the spell check function when the "Submit" button is clicked
-    handleSpellCheck();
     //Play sumbit animation too
     submitAnim();
+    // Call the spell check function when the "Submit" button is clicked
+    handleSpellCheck();
+    //Run the text analysis $ scoring
+    // textScoring();
   };
 
   return (
-    <section
-      className={`${userPage.wrapper} ${isSplit ? userPage.split : ""}`}>
+    <section className={`${userPage.wrapper} ${isSplit ? userPage.split : ""}`}>
       {/* The main content of the page  */}
       <div className={userPage.main_content}>
         {/* Essay prompt box  */}
@@ -160,7 +188,7 @@ const Editor = () => {
           </label>
           <input
             type="text"
-            autocomplete="on"
+            autoComplete="on"
             className={userPage.input}></input>
         </div>
         {/* All the quilljs text editor  */}
@@ -175,14 +203,14 @@ const Editor = () => {
             modules={modules}
             onChange={setValue}
           />
-          {/* Submit button  */}
           {/* <div className={userPage.wrapper}> */}
+          {/* <div className="icon">✔️</div> */}
+          {/* Submit button  */}
           <button onClick={handleSubmit} className={userPage.btn}>
             CHECK
           </button>
-          {/* <div className="icon">✔️</div> */}
           {/* </div> */}
-        </div>
+        </div> 
       </div>
       {/* Split screen content  */}
       {isSplit && (
@@ -190,9 +218,17 @@ const Editor = () => {
           <button onClick={handleClose} className={userPage.close_btn}>
             x
           </button>
+          {/* Spell check info  */}
           <div className={userPage.spellcheck_data}>
-            <pre>{JSON.stringify(spellCheckData, null, 2)}</pre>
+            <SpellCheckResults data={spellCheckData} />
           </div>
+          {/* Text prediction  */}
+          {/* <div>
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}></textarea>
+            {prediction !== null && <p>Prediction: {prediction}</p>}
+          </div> */}
         </div>
       )}
     </section>

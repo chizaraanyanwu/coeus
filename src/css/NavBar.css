@@ -1,4 +1,4 @@
-
+/* Navbar container  */
 .navbar {
   background-color: var(--neut-1); /* Light neutral background */
   padding: 10px; /* Padding around the navigation */
@@ -7,6 +7,7 @@
   justify-content: center; /* Center items horizontally */
 }
 
+/* Default lift stlying  */
 .navbar ul {
   list-style-type: none; /* Remove default list styles */
   display: flex;
@@ -14,6 +15,7 @@
   width: 100%;
 }
 
+/* Add padding and some margins  */
 .navbar li {
   margin: 20px 10px; /* Margin between list items */
   padding: 10px;
@@ -22,19 +24,23 @@
 
 }
 
+/* Hover anim  */
 .navbar li:hover{
   background-color: var(--main);
 }
 
+/* Remove link styling $ default it  */
 .navbar a {
   font-size: 3rem;
-  font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: var(--neut-2); /* Dark neutral text color */
   text-decoration: none; /* Remove underline */
   padding: 8px 12px; /* Padding inside each link */
   transition: color 0.3s ease; /* Smooth color transition */
 }
 
+/* Hover color  */
 .navbar a:hover {
   color: var(--neut-1); /* Hover color */
+  text-decoration: underline;
 }

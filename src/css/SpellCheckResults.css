@@ -1,0 +1,36 @@
+.spellcheck_results {
+  font-family: 'Arial', sans-serif; /* Set font family */
+  font-size: 1.3rem;
+  color: #333;
+  padding: 20px;
+  /* border: 1px solid #ddd; */
+  border-radius: 10px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.spellcheck_results ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.spellcheck_results li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spellcheck_results .misspelled_word {
+  color: var(--sec-1); /* Color for misspelled words */
+}
+
+.spellcheck_results .suggestions {
+  color: #5bc0de; /* Color for suggestions */
+  padding: 10px;
+}
