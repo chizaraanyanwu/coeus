@@ -6,9 +6,12 @@ import "../css/SpellCheckResults.css"; // Import the CSS for styling
 const SpellCheckResults = ({ data }) => {
   return (
     <div className="spellcheck_results">
+      {/* if there are no misspelled words  */}
       {data.misspelled_words.length === 0 ? (
         <p>No misspelled words found.</p>
-      ) : (
+      ) : 
+      // If there are misspelled words 
+      (
         <ul>
           <h3>Mispelt Words</h3>
           {data.misspelled_words.map((word) => (

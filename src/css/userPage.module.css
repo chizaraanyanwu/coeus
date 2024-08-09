@@ -137,6 +137,7 @@ body {
   flex: 1 0 40%;
   flex-basis: 40%;
   flex-grow: 1;
+  height: fit-content;
 }
 /* The close section button  */
 .close_btn {

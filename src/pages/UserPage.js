@@ -7,7 +7,7 @@ import QuillEditor from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import userPage from "../css/userPage.module.css";
 import SpellCheckResults from "../components/SpellCheckResults"; // Import the Spellcheck area component
-// import EssayPrompt from "../components/EssayPrompt.js";
+import TextAnalysisResults from "../components/TextAnalysisResults.js";
 
 const Editor = () => {
   //Adds variables that control the split screen 
@@ -16,7 +16,7 @@ const Editor = () => {
 
   //Prediction model
   // const [text, setText] = useState("");
-  // const [prediction, setPrediction] = useState(null);
+  const [prediction, setPrediction] = useState(null);
 
 
   // Editor state
@@ -63,6 +63,7 @@ const Editor = () => {
 
       const data = await response.json();
       setSpellCheckData(data);
+
       const misspelledWords = data.misspelled_words;
 
       // Splits the screen
@@ -83,22 +84,28 @@ const Editor = () => {
   }, [value]);
 
   // Function to run the AI check 
-  // const textScoring = async () => {
-  //   try {
-  //   // const response = await fetch('http://localhost:5000/analysis', {
-  //   //   method: 'POST',
-  //   //   headers: {
-  //   //     'Content-Type': 'application/json',
-  //   //   },
-  //   //   body: JSON.stringify({ text }),
-  //   // });
+  const textScoring = useCallback(async () => {
+    try {
+      //Idek what this does.... soemthing complex I'm guessing
+      const response = await fetch("http://localhost:5000/analysis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;",
+        },
+        body: JSON.stringify({ text: value }),
+      });
+      if (!response.ok) {
+        throw new Error("Essay prediction failed... try something else girlie");
+      }
 
-  //   // const data = await response.json();
-  //   // setPrediction(data.prediction);
-  //   // } catch (error) {
-  //   //   console.error('Error:', error);
-  //   // }
-  // }};
+      const data = await response.json();
+      
+      setPrediction(data.predicted_score);
+      console.log(data);
+    } catch (error) {
+      console.error("Error during the ummmm thingy... oop:", error.message);
+    }
+  }, [value]);
 
   // Handling imported images 
   const imageHandler = useCallback(() => {
@@ -171,10 +178,10 @@ const Editor = () => {
     console.log("I think it works");
     //Play sumbit animation too
     submitAnim();
+    //Run the text analysis $ scoring
+    textScoring();
     // Call the spell check function when the "Submit" button is clicked
     handleSpellCheck();
-    //Run the text analysis $ scoring
-    // textScoring();
   };
 
   return (
@@ -210,25 +217,21 @@ const Editor = () => {
             CHECK
           </button>
           {/* </div> */}
-        </div> 
+        </div>
       </div>
       {/* Split screen content  */}
       {isSplit && (
         <div className={userPage.side_panel}>
+          {/* Closes the screen  */}
           <button onClick={handleClose} className={userPage.close_btn}>
             x
           </button>
+          <TextAnalysisResults data={prediction} />
           {/* Spell check info  */}
           <div className={userPage.spellcheck_data}>
             <SpellCheckResults data={spellCheckData} />
+            {/* Text prediction  */}
           </div>
-          {/* Text prediction  */}
-          {/* <div>
-            <textarea
-              value={text}
-              onChange={(e) => setText(e.target.value)}></textarea>
-            {prediction !== null && <p>Prediction: {prediction}</p>}
-          </div> */}
         </div>
       )}
     </section>

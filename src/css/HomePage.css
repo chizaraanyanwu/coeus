@@ -10,9 +10,7 @@ body.home-page {
 h1 {
   font-size: 10rem;
   font-family: Helvetica, 'Public Sans', sans-serif;
-  text-align: center;
   color: var(--sec-1);
-
 }
 /* Smaller Headings  */
 h2 {

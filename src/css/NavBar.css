@@ -18,7 +18,7 @@
 /* Add padding and some margins  */
 .navbar li {
   margin: 20px 10px; /* Margin between list items */
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   transition: color 0.3s ease; /* Smooth color transition */
 

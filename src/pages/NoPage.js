@@ -2,12 +2,12 @@
 import "../css/default.css";
 import '../css/NoPage.module.css';
 
-
+import errorMessage from  "../images/errorMessage.png"
 const NoPage = () => {
   return (
-    <div>
+    <div className={NoPage.err_cont}>
       {/* Add an image... eventually  */}
-      {/* <img src="src/images/" alt="Dessert cacti showing the words 'Error 404'" />*/}
+      <img src={errorMessage} alt="Dessert cacti showing the words 'Error 404'" />
       
       <h1>404</h1>
       <p>No page available... try going back!</p>
